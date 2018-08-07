@@ -7,11 +7,15 @@
   </head>
   <body id="page-top">
 
+    <% if is_logged_in? %>
 
-    "Welcome, <%=@user.name%>!" <br>
+      <h3>"Welcome, <%=User.current_user.username%>!" </h3><br>
+      <h4>"Your balance is $<%=User.current_user.balance%>"</h4>
 
-    <a href="/logout">Log Out</a>
-
+      <a href="/logout">Log Out</a>
+    <% else %>
+      <p> Please <a href="/">click here</a> to sign in. </p>
+    <% end %>
 
   </body>
 </html>
